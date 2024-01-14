@@ -1,0 +1,108 @@
+/* .date-lists {
+    display: flex;
+} */
+
+/* .date-lists-box-text {
+    display: flex;
+} */
+
+
+header {
+    height: 50px;
+}
+
+h2 {
+    margin-right: 20px;
+}
+
+.button {
+    width: 45px;
+    height: 22px
+}
+
+.inputForm {
+    height: 80px;
+}
+
+
+.date-lists-boxs {
+    display: flex;
+}
+
+.date-lists-box-text {
+ color: blue;
+ margin-right: 10px;
+}
+
+.date-Lists-price {
+    color: brown;
+}
+
+.button {
+    display: block
+}
+
+.flex-box {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.flex-box p{
+    margin-right: 20px;
+    margin: 15px
+}
+
+/* .shopList {
+    display: flex;
+} */
+
+.shopNameList {
+    display: flex;
+    line-height: 8px;
+    overflow-wrap: normal;
+}
+.shopNameList p{
+    margin-left: 6px;
+    font-size: 10px;
+}
+
+.shopList {
+    display: flex;
+}
+
+.shopList p{
+    margin-right: 6px;
+    font-size: 10px;
+}
+
+
+
+/* .dateBox {
+    height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.dateBoxFlex {
+    text-align: center;
+}
+
+.dateTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+}
+
+
+.dateSortBox {
+    margin-top: 10px;
+}
+
+.sortDateSum p {
+    font: 40px;
+}
