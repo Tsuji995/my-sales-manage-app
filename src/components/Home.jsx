@@ -61,9 +61,15 @@ export const Home = () => {
   const _salary = ASum * 0.6 + CSum * 0.62 
   const manthFloorSalary = Math.floor(_salary)
 
-  console.log(CSum)
-
   setSalary(manthFloorSalary)
+
+  const getDate = async() => {
+    const response = await fetch("http://localhost:5000")
+    const jsonResponse = await response.json()
+    console.log("jsonResponse", jsonResponse.dateList, jsonResponse.dateList.map((list) => list.date))
+    // const jsonGetDateFromDB = await getDateFromDB.json()
+    // console.log("jsonGetDateFromDB:", jsonGetDateFromDB)
+  }
 
   const homeSalary = css`
     color: white;
@@ -99,6 +105,8 @@ export const Home = () => {
         }
         
       </div>
+
+      <button onClick={() => getDate()}>データ</button>
     </div>
   )
 }

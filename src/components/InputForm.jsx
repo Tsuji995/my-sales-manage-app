@@ -18,10 +18,8 @@
                                 setPriceList,
                                 isIterable
                             }) => {
+
         const [date, setDate] = useState()
-
-
-        console.log(isIterable(dateList))
 
         const handleSubmit = (e) => {
 
@@ -84,17 +82,6 @@
             setDate(e.target.value)
         }
 
-        // const SortMonth = () => {
-        //     return (
-        //         <div>
-        //             <form onSubmit={handleSubmitSort}>
-        //             <input value={startDate} type="date" onChange={handleSortStart}/>
-        //             <input value={endDate} type="date" onChange={handleSortEnd}/>
-        //             <button onClick={handleSubmitSort}>登録</button>
-        //         </form>
-        //         </div>
-        //     )
-        // }
 
         const inputFormInput = css`
             margin-right: 8px

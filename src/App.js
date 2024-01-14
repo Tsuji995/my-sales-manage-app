@@ -59,7 +59,7 @@ function App() {
    
    return (
      <div>
-      <MaterialDrawer />
+       <MaterialDrawer />
       <Outlet context={{salesList: salesList, isIterable: isIterable, 
                         dateList: dateList, setDateList: setDateList,
                         setSalesList: setSalesList, startDate: startDate,
@@ -68,6 +68,7 @@ function App() {
                         handleSubmitSort: handleSubmitSort,
                         minDate: minDate, maxDate: maxDate,
                         salary: salary, setSalary: setSalary}}/>
+
     </div>
   )
 }
