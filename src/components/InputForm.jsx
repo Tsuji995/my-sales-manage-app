@@ -32,67 +32,95 @@
 
         const [date, setDate] = useState()
 
-        const handleSubmit = (e) => {
+        // const handleSubmit = (e) => {
 
             
-            if(isIterable(dateList) ) {
+        //     if(isIterable(dateList) ) {
 
-                const duplicateTest = dateList.filter((list) => 
-                list.date === date)
+        //         const duplicateTest = dateList.filter((list) => 
+        //         list.date === date)
 
-                if(duplicateTest.length === 0 && dateList !== null) {
+        //         if(duplicateTest.length === 0 && dateList !== null) {
 
-                    e.preventDefault();
-                    setDateList(
-                        [
-                            ...dateList,
-                            {
-                                id: uuidv4(),
-                                date 
-                            }
+        //             e.preventDefault();
+        //             setDateList(
+        //                 [
+        //                     ...dateList,
+        //                     {
+        //                         id: uuidv4(),
+        //                         date 
+        //                     }
         
-                        ]
-                        )
-                        console.log("dateList spread:", dateList)
+        //                 ]
+        //                 )
+        //                 console.log("dateList spread:", dateList)
             
-                        localStorage.setItem("dateList", JSON.stringify(dateList))
-                } else {
+        //                 localStorage.setItem("dateList", JSON.stringify(dateList))
+        //         } else {
 
 
-                    return (
-                        console.log("1111")
-                    )
-                }
+        //             return (
+        //                 console.log("1111")
+        //             )
+        //         }
 
 
 
 
-            } else {
+        //     } else {
 
-                e.preventDefault();
-                setDateList(
-                    [
-                        // ...dateList,
-                        {
-                            id: uuidv4(),
-                            date 
-                        }
+        //         e.preventDefault();
+        //         setDateList(
+        //             [
+        //                 // ...dateList,
+        //                 {
+        //                     id: uuidv4(),
+        //                     date 
+        //                 }
     
-                    ]
-                    )
-                    console.log("dateList no spread:", dateList)
+        //             ]
+        //             )
+        //             console.log("dateList no spread:", dateList)
         
-                    localStorage.setItem("dateList", JSON.stringify(dateList))
+        //             localStorage.setItem("dateList", JSON.stringify(dateList))
 
                 
-            }
+        //     }
 
-        }
+        // }
+
         
         const handleChangeDate = (e) => {
             setDate(e.target.value)
         }
+        
+        const handleSubmit = async(e) => {
 
+            console.log(date)
+            e.preventDefault()
+            try {
+                const response = await fetch("http://localhost:5000/dateList/create" ,{
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        date: date
+                    })
+                })
+
+                const jsonDate = response.json()
+
+
+                window.location.reload()
+                
+            } catch(err) {
+
+                alert("投稿失敗")
+
+            }
+        }
 
         const inputFormInput = css`
             margin-right: 8px
