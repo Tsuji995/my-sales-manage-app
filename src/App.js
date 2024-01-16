@@ -1,18 +1,31 @@
 /**@jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import MaterialDrawer from './components/MaterialDrawer';
 import { Home } from './components/Home'
 
 
 
-function App() {
+  const App = () => {
+    const [dateList, setDateList] = useState(JSON.parse(localStorage.getItem("dateList")))
+    const [salesList, setSalesList] = useState(JSON.parse(localStorage.getItem("salesLists")))
+
+    // useEffect(async() => {
+    //   const response = await fetch("http://localhost:5000")
+    //   const _dateList = await response.json()
+
+    //   setDateList(_dateList)
+
+    //   console.log("dateList", dateList)
+    // }, [setDateList])
 
 
   
-  const [dateList, setDateList] = useState(JSON.parse(localStorage.getItem("dateList")))
-  const [salesList, setSalesList] = useState(JSON.parse(localStorage.getItem("salesLists")))
+
+
+
+
   
   
 
@@ -60,14 +73,20 @@ function App() {
    return (
      <div>
        <MaterialDrawer />
-      <Outlet context={{salesList: salesList, isIterable: isIterable, 
-                        dateList: dateList, setDateList: setDateList,
-                        setSalesList: setSalesList, startDate: startDate,
-                        setStartDate: setStartDate, endDate: endDate,
+      <Outlet context={{salesList: salesList,
+                         isIterable: isIterable, 
+                        dateList: dateList, 
+                        setDateList: setDateList,
+                        setSalesList: setSalesList, 
+                        startDate: startDate,
+                        setStartDate: setStartDate, 
+                        endDate: endDate,
                         setEndDate: setEndDate,
                         handleSubmitSort: handleSubmitSort,
-                        minDate: minDate, maxDate: maxDate,
-                        salary: salary, setSalary: setSalary}}/>
+                        minDate: minDate, 
+                        maxDate: maxDate,
+                        salary: salary, 
+                        setSalary: setSalary}}/>
 
     </div>
   )
@@ -91,4 +110,12 @@ export default App
 //         handleSubmitSort={handleSubmitSort}
 //         minDate={minDate}
 //         maxDate={maxDate}
+
+// const getDate = async() => {
+//   const response = await fetch("http://localhost:5000")
+//   const jsonResponse = await response.json()
+//   console.log("jsonResponse", jsonResponse.dateList, jsonResponse.dateList.map((list) => list.date))
+//   const jsonGetDateFromDB = await getDateFromDB.json()
+//   console.log("jsonGetDateFromDB:", jsonGetDateFromDB)
+// }
 

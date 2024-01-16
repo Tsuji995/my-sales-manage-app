@@ -8,7 +8,8 @@
 
 
     
-    export const InputForm = ({dateList,
+    export const InputForm = ({
+                                dateList,
                                 setDateList,
                                 price,
                                 setPrice, 
@@ -18,6 +19,16 @@
                                 setPriceList,
                                 isIterable
                             }) => {
+
+
+    
+    // const response = await fetch("http://localhost:5000")
+    // const _dateList = await response.json()
+
+    // console.log("_dateList:",  _dateList)
+
+    // setDateList(_dateList)
+  
 
         const [date, setDate] = useState()
 

@@ -12,10 +12,6 @@ import {Outlet, useOutletContext } from 'react-router-dom'
 function OrganizationSales() {
 
 
-  // const location = useLocation()
-
-  // const state = location.state
-
 
     const {isIterable,
            dateList,
@@ -29,12 +25,6 @@ function OrganizationSales() {
             handleSubmitSort,
             minDate,
             maxDate} = useOutletContext();
-
-
-
-
-
-
 
         // const dateList = state.dateList
         // const setDateList = state.setDateList
@@ -66,12 +56,13 @@ function OrganizationSales() {
         setSalesList={setSalesList}
         isIterable={isIterable}
         />
-        <SortMonth 
+        {/* <SortMonth 
         startDate={startDate}
         setStartDate={setStartDate}
         endDate={endDate}
         setEndDate={setEndDate}
-        handleSubmitSort={handleSubmitSort}/>
+        handleSubmitSort={handleSubmitSort}/> */}
+
         <SalesLists
         dateList={dateList}
         setDateList={setDateList}
@@ -88,28 +79,3 @@ function OrganizationSales() {
 }
 
 export default OrganizationSales
-
-{/* <Title />
-        <InputForm
-        dateList={state.dateList}
-        setDateList={state.setDateList}
-        salesList={state.salesList}
-        setSalesList={state.setSalesList}
-        isIterable={state.isIterable}
-        />
-        <SortMonth 
-        startDate={state.tartDate}
-        setStartDate={state.setStartDate}
-        endDate={state.endDate}
-        setEndDate={state.setEndDate}
-        handleSubmitSort={state.handleSubmitSort}/>
-        <SalesLists
-        dateList={state.dateList}
-        setDateList={state.setDateList}
-        salesList={state.salesList}
-        setSalesList={state.setSalesList}
-        isIterable={state.isIterable}
-        minDate={state.minDate}
-        maxDate={state.maxDate}
-
-        /> */}

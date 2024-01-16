@@ -9,6 +9,7 @@ import React from 'react'
 
 export const Home = () => {
 
+
   const { salary, setSalary, salesList, setSalesList } = useOutletContext();
 
   const salaryDateList = ["", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07",
@@ -55,21 +56,14 @@ export const Home = () => {
                                                                     || list.shop === "プC" ).getTime()).reduce((sum, i) => sum + i.price, 0)
 
 
-  // ["","貴", "楽", "本", "TF", "道",
-  //                         "重", "24", "ラ", "ず", "プ"]
+  ["","貴", "楽", "本", "TF", "道",
+                          "重", "24", "ラ", "ず", "プ"]
 
   const _salary = ASum * 0.6 + CSum * 0.62 
   const manthFloorSalary = Math.floor(_salary)
 
   setSalary(manthFloorSalary)
 
-  const getDate = async() => {
-    const response = await fetch("http://localhost:5000")
-    const jsonResponse = await response.json()
-    console.log("jsonResponse", jsonResponse.dateList, jsonResponse.dateList.map((list) => list.date))
-    // const jsonGetDateFromDB = await getDateFromDB.json()
-    // console.log("jsonGetDateFromDB:", jsonGetDateFromDB)
-  }
 
   const homeSalary = css`
     color: white;
@@ -106,7 +100,6 @@ export const Home = () => {
         
       </div>
 
-      <button onClick={() => getDate()}>データ</button>
     </div>
   )
 }
