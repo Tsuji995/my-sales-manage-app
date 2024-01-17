@@ -11,28 +11,6 @@ import { Home } from './components/Home'
     const [dateList, setDateList] = useState()
     const [salesList, setSalesList] = useState(JSON.parse(localStorage.getItem("salesLists")))
 
-    // useEffect(async() => {
-    //   const response = await fetch("http://localhost:5000")
-    //   const _dateList = await response.json()
-
-    //   setDateList(_dateList)
-
-    //   console.log("dateList", dateList)
-    // }, [setDateList])
-
-
-  
-
-
-
-
-  
-  
-
-
-  
- 
-
   const isIterable = obj => 
   typeof obj !== "object" || obj === null
   ? false
@@ -96,26 +74,4 @@ export default App
 
 
 
-
-
-// dateList={dateList}
-//         setDateList={setDateList}
-//         salesList={salesList}
-//         setSalesList={setSalesList}
-//         isIterable={isIterable}
-//         startDate={startDate}
-//         setStartDate={setStartDate}
-//         endDate={endDate}
-//         setEndDate={setEndDate}
-//         handleSubmitSort={handleSubmitSort}
-//         minDate={minDate}
-//         maxDate={maxDate}
-
-// const getDate = async() => {
-//   const response = await fetch("http://localhost:5000")
-//   const jsonResponse = await response.json()
-//   console.log("jsonResponse", jsonResponse.dateList, jsonResponse.dateList.map((list) => list.date))
-//   const jsonGetDateFromDB = await getDateFromDB.json()
-//   console.log("jsonGetDateFromDB:", jsonGetDateFromDB)
-// }
 

@@ -26,18 +26,6 @@ function OrganizationSales() {
             minDate,
             maxDate} = useOutletContext();
 
-        // const dateList = state.dateList
-        // const setDateList = state.setDateList
-        // const salesList = state.salesList
-        // const setSalesList = state.setSalesList
-        // const isIterable = state.isIterable
-    //     const startDate = state.startDate
-    //     const setStartDate = state.setStartDate
-    //     const endDate = state.endDate
-    //     const setEndDate = state.setEndDate
-    //     const handleSubmitSort = state.handleSubmitSort
-    //     const minDate = state.minDate
-    //     const maxDate = state.maxDate
 
 
     const organizationSales = css`
@@ -56,12 +44,12 @@ function OrganizationSales() {
         setSalesList={setSalesList}
         isIterable={isIterable}
         />
-        {/* <SortMonth 
+        <SortMonth 
         startDate={startDate}
         setStartDate={setStartDate}
         endDate={endDate}
         setEndDate={setEndDate}
-        handleSubmitSort={handleSubmitSort}/> */}
+        handleSubmitSort={handleSubmitSort}/>
 
         <SalesLists
         dateList={dateList}

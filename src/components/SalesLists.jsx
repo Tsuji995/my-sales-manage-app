@@ -30,10 +30,6 @@ useEffect(() => {
     }, []);
 
 
-
-
-
-
 const [price, setPrice] = useState()
 const [selectOption, setSelectOption] = useState()
 const [selectShop, setSelectShop] = useState()
@@ -63,32 +59,74 @@ if(dateList) {
         return date._id
     }))
 
-    return (
-        <div>
-            {
-                dateBox.map((date) => {
-                    return (
-                        <div className='dateBoxFlex'>   
-                                       <DateBox date={date.date}
-                                                    dateId={date._id}
-                                                    dateList={dateList}
-                                                    setDateList={setDateList}
-                                                    price={price}
-                                                    setPrice={setPrice}
-                                                    selectOption={selectOption}
-                                                    setSelectOption={setSelectOption}
-                                                    selectShop={selectShop}
-                                                    setSelectShop={setSelectShop}
-                                                    salesList={salesList}
-                                                    setSalesList={setSalesList}
-                                                    isIterable={isIterable}
-                                                        />
-                         </div>
-                    )
-                })
-            }
-        </div>
-    )
+    if(minDate && maxDate) {
+
+        return (
+                        <div className='dateBox'>
+                           <div className="sortDateSum">
+                             <p>範囲指定合計:<SortDatePrice /></p>
+                            </div>
+                            {dateList.filter((date) => 
+                            new Date(minDate).getTime() <= new Date(date.date).getTime() && new Date(date.date).getTime() <= new Date(maxDate)
+                            .getTime()).map((date) => {
+                                    return (
+                    
+                                            <div className='dateBoxFlex'>   
+                                                <DateBox date={date.date}
+                                                        dateId={date.id}
+                                                        dateList={dateList}
+                                                        setDateList={setDateList}
+                                                        price={price}
+                                                        setPrice={setPrice}
+                                                        selectOption={selectOption}
+                                                        setSelectOption={setSelectOption}
+                                                        selectShop={selectShop}
+                                                        setSelectShop={setSelectShop}
+                                                        salesList={salesList}
+                                                        setSalesList={setSalesList}
+                                                        isIterable={isIterable}
+                                                />
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                        )
+        
+    } else {
+        
+        return (
+            <div>
+                {
+                    dateBox.map((date) => {
+                        return (
+                            <div className='dateBoxFlex'>   
+                                           <DateBox date={date.date}
+                                                        dateId={date._id}
+                                                        dateList={dateList}
+                                                        setDateList={setDateList}
+                                                        price={price}
+                                                        setPrice={setPrice}
+                                                        selectOption={selectOption}
+                                                        setSelectOption={setSelectOption}
+                                                        selectShop={selectShop}
+                                                        setSelectShop={setSelectShop}
+                                                        salesList={salesList}
+                                                        setSalesList={setSalesList}
+                                                        isIterable={isIterable}
+                                                            />
+                             </div>
+                        )
+                    })
+                }
+            </div>
+        )
+            
+            
+            
+            
+
+    }
+
 
 } else {
     return (
@@ -99,40 +137,3 @@ if(dateList) {
     )
 }
                             }
-
-// if(minDate && maxDate) {
-    
-    //     return (
-        //             <div className='dateBox'>
-        //                <div className="sortDateSum">
-        //                  <p>範囲指定合計:<SortDatePrice /></p>
-        //                 </div>
-        //                 {dateList.filter((date) => 
-        //                 new Date(minDate).getTime() <= new Date(date.date).getTime() && new Date(date.date).getTime() <= new Date(maxDate)
-        //                 .getTime()).map((date) => {
-            //                     return (
-                
-                //                         <div className='dateBoxFlex'>   
-                //                             <DateBox date={date.date}
-                //                                     dateId={date.id}
-                //                                     dateList={dateList}
-                //                                     setDateList={setDateList}
-                //                                     price={price}
-                //                                     setPrice={setPrice}
-                //                                     selectOption={selectOption}
-                //                                     setSelectOption={setSelectOption}
-                //                                     selectShop={selectShop}
-                //                                     setSelectShop={setSelectShop}
-                //                                     salesList={salesList}
-                //                                     setSalesList={setSalesList}
-                //                                     isIterable={isIterable}
-                //                             />
-                //                         </div>
-                //                     )
-                //                 })}
-                //             </div>
-                //     )
-                // } else {
-                    //     <div>
-                    
-                    //     </div>
