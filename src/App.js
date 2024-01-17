@@ -8,8 +8,9 @@ import { Home } from './components/Home'
 
 
   const App = () => {
+
     const [dateList, setDateList] = useState()
-    const [salesList, setSalesList] = useState(JSON.parse(localStorage.getItem("salesLists")))
+    const [salesList, setSalesList] = useState()
 
   const isIterable = obj => 
   typeof obj !== "object" || obj === null
