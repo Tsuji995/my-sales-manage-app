@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 export default function Result({salesList, date, isIterable, setSalesList}) {
 
   if(isIterable(salesList)){
-
+    
     const resultFlexBox = css`
     display: flex;
     justify-content: center;
@@ -23,6 +23,7 @@ export default function Result({salesList, date, isIterable, setSalesList}) {
         margin-right: 20px;
         margin: 15px
       }
+
   `
 
 

@@ -108,55 +108,79 @@ export default function DateBox({date,
 
   // 売上登録
 
-  const handleRegister = () => {
+  const handleRegister = async() => {
 
-    if(isIterable(salesList)) {
+    try {
+        const response = await fetch("http://localhost:5000/salesList/create" ,{
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              date: date,
+              course: selectOption,
+              price: price,
+              shop: selectShop
+            })
+        })
 
-      setSalesList([
-        ...salesList,
+        const JSONSales = response.json()
+
         
-        {
-          id: uuidv4(),
-          date: date,
-          course: selectOption,
-          price: price,
-          shop: selectShop
-        }
-        
-      
-      ])
+    } catch(err) {
 
-      
-    
-      console.log("salesList:",salesList);
-    
-      localStorage.setItem("salesLists", JSON.stringify(salesList))
-
-      setSelectOption("")
-      setSelectShop("")
-
-
-    } else {
-      setSalesList([
-        // ...salesList,
-        
-        {
-          id: uuidv4(),
-          date: date,
-          course: selectOption,
-          price: price,
-          shop: selectShop
-        }
-        
-      
-      ])
-    
-      localStorage.setItem("salesLists", JSON.stringify(salesList))
-
-      setSelectOption("")
-      setSelectShop("")
+        alert("投稿失敗")
 
     }
+
+    // if(isIterable(salesList)) {
+
+    //   setSalesList([
+    //     ...salesList,
+        
+    //     {
+    //       id: uuidv4(),
+    //       date: date,
+    //       course: selectOption,
+    //       price: price,
+    //       shop: selectShop
+    //     }
+        
+      
+    //   ])
+
+      
+    
+    //   console.log("salesList:",salesList);
+    
+    //   localStorage.setItem("salesLists", JSON.stringify(salesList))
+
+    //   setSelectOption("")
+    //   setSelectShop("")
+
+
+    // } else {
+    //   setSalesList([
+    //     // ...salesList,
+        
+    //     {
+    //       id: uuidv4(),
+    //       date: date,
+    //       course: selectOption,
+    //       price: price,
+    //       shop: selectShop
+    //     }
+        
+      
+    //   ])
+    
+    //   localStorage.setItem("salesLists", JSON.stringify(salesList))
+
+    //   setSelectOption("")
+    //   setSelectShop("")
+
+    // }
 
 }
 

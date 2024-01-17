@@ -75,6 +75,19 @@ app.post("/salesList/create",  async(req, res) => {
 
 })
 
+app.get("/salesList", async(req, res) => {
+
+    try {
+        await connectDB()
+        const salesList = await SalesModel.find()
+        console.log(salesList)
+        return res.status(200).json({message: "セールス読み込み成功", dateList: dateList})
+
+    }catch(err) {
+        return res.status(400).json({message: "セールス読み込み失敗"})
+    }
+})
+
 
 
 
