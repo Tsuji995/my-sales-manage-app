@@ -42,6 +42,20 @@ app.post("/dateList/create",  async(req, res) => {
 
 })
 
+// Delete DateList 
+
+app.delete("/dateList/delete/:id", async(req, res) => {
+    try {
+
+        await connectDB()
+        await DateModel.deleteOne({_id: req.params.id})
+        return res.status(200).json({message: "削除成功"})
+
+    }catch(err){
+        return res.status(400).json({message: "削除失敗"})
+    }
+})
+
 // Create SalesList
 
 

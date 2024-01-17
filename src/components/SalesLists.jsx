@@ -56,7 +56,9 @@ const SortDatePrice = () => {if(salesList && isIterable(salesList)){
 if(dateList) {
 
     const dateBox = _dateBox.sort((a, b) => a.date > b.date ? 1 : -1)
-    console.log("sort:", dateBox)
+    console.log("sort:", dateBox.map((date) => {
+        return date._id
+    }))
 
     return (
         <div>
@@ -65,9 +67,9 @@ if(dateList) {
                     return (
                         <div className='dateBoxFlex'>   
                                        <DateBox date={date.date}
-                //                                     dateId={date.id}
-                //                                     dateList={dateList}
-                //                                     setDateList={setDateList}
+                                                    dateId={date._id}
+                                                    dateList={dateList}
+                                                    setDateList={setDateList}
                 //                                     price={price}
                 //                                     setPrice={setPrice}
                 //                                     selectOption={selectOption}

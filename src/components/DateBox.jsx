@@ -1,7 +1,7 @@
 /**@jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./style.css"
 import { v4 as uuidv4 } from "uuid"
 import Result from './Result'
@@ -37,6 +37,11 @@ export default function DateBox({date,
                                   setSalesList,
                                   isIterable}) {
 
+
+
+
+  console.log("id", dateId)
+  console.log("Datebox:", dateList)
 
   const chooseCourse = (e) => {
 
@@ -158,28 +163,54 @@ export default function DateBox({date,
 
 // 日付削除
 
-  const deleteDate = (id) => {
+  const deleteDate = async(id) => {
 
-    if(salesList && isIterable(salesList)){
-      const _deleteAllSales = dateList.filter((list) => list.id === id);
-      const filterDateList = dateList.filter((list) => list.id !== id);
+    console.log(id)
+
+
+ 
+        const response = await fetch(`http://localhost:5000/dateList/delete/${id}` ,{
+            method: "DELETE",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+        })
+
+        const JsonDate = await response.json()
+
+        console.log(JsonDate.message)
+
+        window.location.reload()
+  
+ 
+
+
+
+      
+
+
+
+    // if(salesList && isIterable(salesList)){
+    //   const _deleteAllSales = dateList.filter((list) => list.id === id);
+    //   const filterDateList = dateList.filter((list) => list.id !== id);
   
   
-      console.log("test:", _deleteAllSales[0].date)
+    //   console.log("test:", _deleteAllSales[0].date)
   
-      const delereAllSales = salesList.filter((list) => list.date !== _deleteAllSales[0].date)
-      setDateList(filterDateList)
-      setSalesList(delereAllSales)
-      console.log(salesList)
+    //   const delereAllSales = salesList.filter((list) => list.date !== _deleteAllSales[0].date)
+    //   setDateList(filterDateList)
+    //   setSalesList(delereAllSales)
+    //   console.log(salesList)
   
   
   
-      localStorage.setItem("salesLists", JSON.stringify(salesList))
-      localStorage.setItem("dateList", JSON.stringify(dateList))
-    } else {
-      const filterDateList = dateList.filter((list) => list.id !== id);
-      setDateList(filterDateList)
-    }
+    //   localStorage.setItem("salesLists", JSON.stringify(salesList))
+    //   localStorage.setItem("dateList", JSON.stringify(dateList))
+    // } else {
+    //   const filterDateList = dateList.filter((list) => list.id !== id);
+    //   setDateList(filterDateList)
+    // }
   }
 
 
