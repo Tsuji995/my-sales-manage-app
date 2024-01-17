@@ -81,9 +81,11 @@ app.get("/salesList", async(req, res) => {
         await connectDB()
         const salesList = await SalesModel.find()
         console.log(salesList)
-        return res.status(200).json({message: "セールス読み込み成功", dateList: dateList})
+        return res.status(200).json({message: "セールス読み込み成功", salesList: salesList})
 
     }catch(err) {
+
+        console.log(err)
         return res.status(400).json({message: "セールス読み込み失敗"})
     }
 })

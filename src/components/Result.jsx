@@ -1,5 +1,6 @@
 /**@jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
+import { useEffect } from "react";
 import React from 'react'
 import ShopResult from './ShopResult'
 import Button from '@mui/material/Button';
@@ -9,9 +10,7 @@ import Button from '@mui/material/Button';
 
 export default function Result({salesList, date, isIterable, setSalesList}) {
 
-  if(isIterable(salesList)){
-    
-    const resultFlexBox = css`
+   const resultFlexBox = css`
     display: flex;
     justify-content: center;
     height: 20px;
@@ -26,6 +25,24 @@ export default function Result({salesList, date, isIterable, setSalesList}) {
 
   `
 
+  useEffect(() => {
+    (async () => {const response = await fetch("http://localhost:5000/salesList")
+        const jsonResponse = await response.json()
+        const _salesList = jsonResponse
+        console.log("Result:", _salesList.salesList)
+
+        setSalesList( _salesList.salesList)
+
+    })();
+    }, []);
+
+
+    console.log("Result:", salesList)
+
+
+  if(isIterable(salesList)){
+
+   
 
   
 
