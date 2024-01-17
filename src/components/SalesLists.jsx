@@ -70,15 +70,15 @@ if(dateList) {
                                                     dateId={date._id}
                                                     dateList={dateList}
                                                     setDateList={setDateList}
-                //                                     price={price}
-                //                                     setPrice={setPrice}
-                //                                     selectOption={selectOption}
-                //                                     setSelectOption={setSelectOption}
-                //                                     selectShop={selectShop}
-                //                                     setSelectShop={setSelectShop}
-                //                                     salesList={salesList}
-                //                                     setSalesList={setSalesList}
-                //                                     isIterable={isIterable}
+                                                    price={price}
+                                                    setPrice={setPrice}
+                                                    selectOption={selectOption}
+                                                    setSelectOption={setSelectOption}
+                                                    selectShop={selectShop}
+                                                    setSelectShop={setSelectShop}
+                                                    salesList={salesList}
+                                                    setSalesList={setSalesList}
+                                                    isIterable={isIterable}
                                                         />
                          </div>
                     )

@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 const connectDB = require("./utils/database")
 const punycode = require('punycode/package.json')
-const { DateModel } = require("./utils/schemaModels")
+const { DateModel, SalesModel } = require("./utils/schemaModels")
 
 // mongodb+srv://shizhicheng651:<password>@cluster0.8mcf7n4.mongodb.net/?retryWrites=true&w=majority
 
@@ -57,6 +57,27 @@ app.delete("/dateList/delete/:id", async(req, res) => {
 })
 
 // Create SalesList
+
+app.post("/salesList/create",  async(req, res) => {
+
+    try{
+        await connectDB()
+        console.log(req.body)
+        await SalesModel.create(req.body)
+    
+        return res.status(200).json({message: "セールス作成成功"})
+
+    }catch(err){
+        console.log(err)
+    }
+        return res.status(400).json({message: "セールス作成失敗"})
+
+
+})
+
+
+
+
 
 
 
