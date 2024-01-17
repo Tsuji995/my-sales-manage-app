@@ -56,6 +56,23 @@ app.delete("/dateList/delete/:id", async(req, res) => {
     }
 })
 
+// Get SalesList
+
+app.get("/salesList", async(req, res) => {
+
+    try {
+        await connectDB()
+        const salesList = await SalesModel.find()
+        console.log(salesList)
+        return res.status(200).json({message: "セールス読み込み成功", salesList: salesList})
+
+    }catch(err) {
+
+        console.log(err)
+        return res.status(400).json({message: "セールス読み込み失敗"})
+    }
+})
+
 // Create SalesList
 
 app.post("/salesList/create",  async(req, res) => {
@@ -75,20 +92,21 @@ app.post("/salesList/create",  async(req, res) => {
 
 })
 
-app.get("/salesList", async(req, res) => {
 
+// Delete SalesList
+
+app.delete("/salesList/delete/:id", async(req, res) => {
     try {
+
         await connectDB()
-        const salesList = await SalesModel.find()
-        console.log(salesList)
-        return res.status(200).json({message: "セールス読み込み成功", salesList: salesList})
+        await SalesModel.deleteOne({_id: req.params.id})
+        return res.status(200).json({message: "削除成功"})
 
-    }catch(err) {
-
-        console.log(err)
-        return res.status(400).json({message: "セールス読み込み失敗"})
+    }catch(err){
+        return res.status(400).json({message: "削除失敗"})
     }
 })
+
 
 
 

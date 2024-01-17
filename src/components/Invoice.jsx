@@ -21,81 +21,81 @@ export default function Invoice() {
   const selectShopList = ["","貴", "楽", "本", "TF", "道",
                           "重", "24", "ラ", "ず", "プ"]
 
-  const [invoiceShop, setInvoiceShop] = useState("")
+  // const [invoiceShop, setInvoiceShop] = useState("")
 
   
   
   
-  const handleInvoiceShop = (e) => {
-    const _selectInvoiceShop = e.target.value
-    setInvoiceShop(_selectInvoiceShop)
-    e.preventDefault()
-  }
+  // const handleInvoiceShop = (e) => {
+  //   const _selectInvoiceShop = e.target.value
+  //   setInvoiceShop(_selectInvoiceShop)
+  //   e.preventDefault()
+  // }
   
-  const invoiceDateList = ["", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07",
-                      "2024-08", "2024-09", "2024-10", "2024-11", "2024-12"]
+  // const invoiceDateList = ["", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07",
+  //                     "2024-08", "2024-09", "2024-10", "2024-11", "2024-12"]
   
-  const [invoiceDate, setInvoiceDate] = useState("")
-  const [previousMonth, setPreviousMonth] = useState("")
+  // const [invoiceDate, setInvoiceDate] = useState("")
+  // const [previousMonth, setPreviousMonth] = useState("")
 
-  const handleInvoiceDate = (e) => {
-    const _chooseInvoiceDate = e.target.value
-    setInvoiceDate(_chooseInvoiceDate)
-    const _previousMonth = _chooseInvoiceDate
-    setPreviousMonth(_previousMonth === "2024-02" ? "2024-01"
-                    :_previousMonth === "2024-03" ? "2024-02"
-                    :_previousMonth === "2024-04" ? "2024-03"
-                    :_previousMonth === "2024-05" ? "2024-04"
-                    :_previousMonth === "2024-06" ? "2024-05"
-                    :_previousMonth === "2024-07" ? "2024-06"
-                    :_previousMonth === "2024-08" ? "2024-07"
-                    :_previousMonth === "2024-09" ? "2024-08"
-                    :_previousMonth === "2024-10" ? "2024-09"
-                    :_previousMonth === "2024-11" ? "2024-10"
-                    :_previousMonth === "2024-12" ? "2024-11"
-                    :_previousMonth === "2025-01" ? "2024-12"
-                    : "2024-02")
-  }
+  // const handleInvoiceDate = (e) => {
+  //   const _chooseInvoiceDate = e.target.value
+  //   setInvoiceDate(_chooseInvoiceDate)
+  //   const _previousMonth = _chooseInvoiceDate
+  //   setPreviousMonth(_previousMonth === "2024-02" ? "2024-01"
+  //                   :_previousMonth === "2024-03" ? "2024-02"
+  //                   :_previousMonth === "2024-04" ? "2024-03"
+  //                   :_previousMonth === "2024-05" ? "2024-04"
+  //                   :_previousMonth === "2024-06" ? "2024-05"
+  //                   :_previousMonth === "2024-07" ? "2024-06"
+  //                   :_previousMonth === "2024-08" ? "2024-07"
+  //                   :_previousMonth === "2024-09" ? "2024-08"
+  //                   :_previousMonth === "2024-10" ? "2024-09"
+  //                   :_previousMonth === "2024-11" ? "2024-10"
+  //                   :_previousMonth === "2024-12" ? "2024-11"
+  //                   :_previousMonth === "2025-01" ? "2024-12"
+  //                   : "2024-02")
+  // }
 
   
 
     // A勤売上
-    const A26 = salesList.filter((list) => list.date === previousMonth + "-26" && list.shop === invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A27 = salesList.filter((list) => list.date === previousMonth + "-27" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A28 = salesList.filter((list) => list.date === previousMonth + "-28" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A29 = salesList.filter((list) => list.date === previousMonth + "-29" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A30 = salesList.filter((list) => list.date === previousMonth + "-30" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A31 = salesList.filter((list) => list.date === previousMonth + "-31" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A1 = salesList.filter((list) => list.date === invoiceDate + "-01" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A2 = salesList.filter((list) => list.date === invoiceDate + "-02" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A3 = salesList.filter((list) => list.date === invoiceDate + "-03" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A4 = salesList.filter((list) => list.date === invoiceDate + "-04" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A5 = salesList.filter((list) => list.date === invoiceDate + "-05" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A6 = salesList.filter((list) => list.date === invoiceDate + "-06" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A7 = salesList.filter((list) => list.date === invoiceDate + "-07" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A8 = salesList.filter((list) => list.date === invoiceDate + "-08" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A9 = salesList.filter((list) => list.date === invoiceDate + "-09" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A10 = salesList.filter((list) => list.date === invoiceDate + "-10" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A11 = salesList.filter((list) => list.date === invoiceDate + "-11" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A12 = salesList.filter((list) => list.date === invoiceDate + "-12" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A13 = salesList.filter((list) => list.date === invoiceDate + "-13" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A14 = salesList.filter((list) => list.date === invoiceDate + "-14" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A15 = salesList.filter((list) => list.date === invoiceDate + "-15" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A16 = salesList.filter((list) => list.date === invoiceDate + "-16" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A17 = salesList.filter((list) => list.date === invoiceDate + "-17" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A18 = salesList.filter((list) => list.date === invoiceDate + "-18" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A19 = salesList.filter((list) => list.date === invoiceDate + "-19" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A20 = salesList.filter((list) => list.date === invoiceDate + "-20" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A21 = salesList.filter((list) => list.date === invoiceDate + "-21" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A22 = salesList.filter((list) => list.date === invoiceDate + "-22" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A23 = salesList.filter((list) => list.date === invoiceDate + "-23" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A24 = salesList.filter((list) => list.date === invoiceDate + "-24" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const A25 = salesList.filter((list) => list.date === invoiceDate + "-25" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A26 = salesList.filter((list) => list.date === previousMonth + "-26" && list.shop === invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A27 = salesList.filter((list) => list.date === previousMonth + "-27" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A28 = salesList.filter((list) => list.date === previousMonth + "-28" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A29 = salesList.filter((list) => list.date === previousMonth + "-29" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A30 = salesList.filter((list) => list.date === previousMonth + "-30" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A31 = salesList.filter((list) => list.date === previousMonth + "-31" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A1 = salesList.filter((list) => list.date === invoiceDate + "-01" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A2 = salesList.filter((list) => list.date === invoiceDate + "-02" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A3 = salesList.filter((list) => list.date === invoiceDate + "-03" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A4 = salesList.filter((list) => list.date === invoiceDate + "-04" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A5 = salesList.filter((list) => list.date === invoiceDate + "-05" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A6 = salesList.filter((list) => list.date === invoiceDate + "-06" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A7 = salesList.filter((list) => list.date === invoiceDate + "-07" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A8 = salesList.filter((list) => list.date === invoiceDate + "-08" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A9 = salesList.filter((list) => list.date === invoiceDate + "-09" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A10 = salesList.filter((list) => list.date === invoiceDate + "-10" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A11 = salesList.filter((list) => list.date === invoiceDate + "-11" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A12 = salesList.filter((list) => list.date === invoiceDate + "-12" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A13 = salesList.filter((list) => list.date === invoiceDate + "-13" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A14 = salesList.filter((list) => list.date === invoiceDate + "-14" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A15 = salesList.filter((list) => list.date === invoiceDate + "-15" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A16 = salesList.filter((list) => list.date === invoiceDate + "-16" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A17 = salesList.filter((list) => list.date === invoiceDate + "-17" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A18 = salesList.filter((list) => list.date === invoiceDate + "-18" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A19 = salesList.filter((list) => list.date === invoiceDate + "-19" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A20 = salesList.filter((list) => list.date === invoiceDate + "-20" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A21 = salesList.filter((list) => list.date === invoiceDate + "-21" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A22 = salesList.filter((list) => list.date === invoiceDate + "-22" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A23 = salesList.filter((list) => list.date === invoiceDate + "-23" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A24 = salesList.filter((list) => list.date === invoiceDate + "-24" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const A25 = salesList.filter((list) => list.date === invoiceDate + "-25" && list.shop ===invoiceShop).reduce((sum, i) => sum + i.price, 0).toLocaleString()
 
     // A勤合計
-    const ASum = salesList.filter((list) =>new Date(previousMonth + "-26").getTime() <= new Date(list.date).getTime() 
-                                        && new Date(list.date).getTime() <= new Date(invoiceDate + "-25").getTime()
-                                        && list.shop === invoiceShop).reduce((sum, i) => sum + i.price, 0)
+    // const ASum = salesList.filter((list) =>new Date(previousMonth + "-26").getTime() <= new Date(list.date).getTime() 
+    //                                     && new Date(list.date).getTime() <= new Date(invoiceDate + "-25").getTime()
+    //                                     && list.shop === invoiceShop).reduce((sum, i) => sum + i.price, 0)
 
 
     // const sortDatePrice = salesList.filter((date) => 
@@ -103,54 +103,54 @@ export default function Invoice() {
     // .reduce((sum, i) => sum + i.price, 0)
 
     // C勤売上
-    const C26 = salesList.filter((list) => list.date === previousMonth + "-26" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C27 = salesList.filter((list) => list.date === previousMonth + "-27" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C28 = salesList.filter((list) => list.date === previousMonth + "-28" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C29 = salesList.filter((list) => list.date === previousMonth + "-29" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C30 = salesList.filter((list) => list.date === previousMonth + "-30" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C31 = salesList.filter((list) => list.date === previousMonth + "-31" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C1 = salesList.filter((list) => list.date === invoiceDate + "-01" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C2 = salesList.filter((list) => list.date === invoiceDate + "-02" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C3 = salesList.filter((list) => list.date === invoiceDate + "-03" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C4 = salesList.filter((list) => list.date === invoiceDate + "-04" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C5 = salesList.filter((list) => list.date === invoiceDate + "-05" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C6 = salesList.filter((list) => list.date === invoiceDate + "-06" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C7 = salesList.filter((list) => list.date === invoiceDate + "-07" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C8 = salesList.filter((list) => list.date === invoiceDate + "-08" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C9 = salesList.filter((list) => list.date === invoiceDate + "-09" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C10 = salesList.filter((list) => list.date === invoiceDate + "-10" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C11 = salesList.filter((list) => list.date === invoiceDate + "-11" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C12 = salesList.filter((list) => list.date === invoiceDate + "-12" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C13 = salesList.filter((list) => list.date === invoiceDate + "-13" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C14 = salesList.filter((list) => list.date === invoiceDate + "-14" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C15 = salesList.filter((list) => list.date === invoiceDate + "-15" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C16 = salesList.filter((list) => list.date === invoiceDate + "-16" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C17 = salesList.filter((list) => list.date === invoiceDate + "-17" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C18 = salesList.filter((list) => list.date === invoiceDate + "-18" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C19 = salesList.filter((list) => list.date === invoiceDate + "-19" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C20 = salesList.filter((list) => list.date === invoiceDate + "-20" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C21 = salesList.filter((list) => list.date === invoiceDate + "-21" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C22 = salesList.filter((list) => list.date === invoiceDate + "-22" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C23 = salesList.filter((list) => list.date === invoiceDate + "-23" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C24 = salesList.filter((list) => list.date === invoiceDate + "-24" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
-    const C25 = salesList.filter((list) => list.date === invoiceDate + "-25" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C26 = salesList.filter((list) => list.date === previousMonth + "-26" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C27 = salesList.filter((list) => list.date === previousMonth + "-27" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C28 = salesList.filter((list) => list.date === previousMonth + "-28" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C29 = salesList.filter((list) => list.date === previousMonth + "-29" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C30 = salesList.filter((list) => list.date === previousMonth + "-30" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C31 = salesList.filter((list) => list.date === previousMonth + "-31" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C1 = salesList.filter((list) => list.date === invoiceDate + "-01" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C2 = salesList.filter((list) => list.date === invoiceDate + "-02" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C3 = salesList.filter((list) => list.date === invoiceDate + "-03" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C4 = salesList.filter((list) => list.date === invoiceDate + "-04" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C5 = salesList.filter((list) => list.date === invoiceDate + "-05" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C6 = salesList.filter((list) => list.date === invoiceDate + "-06" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C7 = salesList.filter((list) => list.date === invoiceDate + "-07" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C8 = salesList.filter((list) => list.date === invoiceDate + "-08" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C9 = salesList.filter((list) => list.date === invoiceDate + "-09" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C10 = salesList.filter((list) => list.date === invoiceDate + "-10" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C11 = salesList.filter((list) => list.date === invoiceDate + "-11" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C12 = salesList.filter((list) => list.date === invoiceDate + "-12" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C13 = salesList.filter((list) => list.date === invoiceDate + "-13" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C14 = salesList.filter((list) => list.date === invoiceDate + "-14" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C15 = salesList.filter((list) => list.date === invoiceDate + "-15" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C16 = salesList.filter((list) => list.date === invoiceDate + "-16" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C17 = salesList.filter((list) => list.date === invoiceDate + "-17" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C18 = salesList.filter((list) => list.date === invoiceDate + "-18" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C19 = salesList.filter((list) => list.date === invoiceDate + "-19" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C20 = salesList.filter((list) => list.date === invoiceDate + "-20" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C21 = salesList.filter((list) => list.date === invoiceDate + "-21" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C22 = salesList.filter((list) => list.date === invoiceDate + "-22" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C23 = salesList.filter((list) => list.date === invoiceDate + "-23" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C24 = salesList.filter((list) => list.date === invoiceDate + "-24" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
+    // const C25 = salesList.filter((list) => list.date === invoiceDate + "-25" && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0).toLocaleString()
 
-     // C勤合計
-     const CSum = salesList.filter((list) =>new Date(previousMonth + "-26").getTime() <= new Date(list.date).getTime() 
-     && new Date(list.date).getTime() <= new Date(invoiceDate + "-25").getTime()
-     && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0)
+    //  // C勤合計
+    //  const CSum = salesList.filter((list) =>new Date(previousMonth + "-26").getTime() <= new Date(list.date).getTime() 
+    //  && new Date(list.date).getTime() <= new Date(invoiceDate + "-25").getTime()
+    //  && list.shop === invoiceShop + "C").reduce((sum, i) => sum + i.price, 0)
 
-    //  給与計算
+    // //  給与計算
 
-    const monthSalary = ASum * 0.6 + CSum * 0.62
+    // const monthSalary = ASum * 0.6 + CSum * 0.62
 
-    setSalary(monthSalary)
+    // setSalary(monthSalary)
 
-    console.log("monthSalary:", monthSalary)
+    // console.log("monthSalary:", monthSalary)
 
 
 
-    // スタイル
+    // // スタイル
 
      const invoice = css`
       text-align: center;
@@ -173,7 +173,7 @@ export default function Invoice() {
     
   return (
     <div css={invoice}>
-        <h1>請求書</h1>
+        {/* <h1>請求書</h1>
           <selection>
             <select value={invoiceShop} onChange={handleInvoiceShop}> 
                 {selectShopList.map((Shop) => {
@@ -229,7 +229,7 @@ export default function Invoice() {
               <tr><th>25日</th><td>{A25}</td><td>{C25}</td></tr>
               <tr><th>合計</th><td>{ASum.toLocaleString()}</td><td>{CSum.toLocaleString()}</td></tr>
           </table>
-        </div>
+        </div> */}
     </div>
   )
 }

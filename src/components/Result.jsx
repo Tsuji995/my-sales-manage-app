@@ -49,12 +49,28 @@ export default function Result({salesList, date, isIterable, setSalesList}) {
 
     // 売上削除
   
-  const onDelete = (id) => {
-    console.log(id)
-    const filterSalesList = salesList.filter((list) => list.id !== id);
-    setSalesList(filterSalesList)
+  const onDelete = async(id) => {
 
-    localStorage.setItem("salesLists", JSON.stringify(salesList))
+    console.log("salesid:", id)
+
+
+    const response = await fetch(`http://localhost:5000/salesList/delete/${id}` ,{
+      method: "DELETE",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+      },
+  })
+
+  const JsonDate = await response.json()
+
+  console.log(JsonDate.message)
+
+  window.location.reload()
+    // console.log(id)
+    // const filterSalesList = salesList.filter((list) => list.id !== id);
+    // setSalesList(filterSalesList)
+
   }
 
     return (
@@ -65,7 +81,7 @@ export default function Result({salesList, date, isIterable, setSalesList}) {
                     <p css>{list.course}</p>
                     <p>{list.price.toLocaleString()}</p>
                     <p>{list.shop}</p>
-                    <Button variant="outlined" color="error" size="small" onClick={() => {onDelete(list.id)}}>削除</Button>
+                    <Button variant="outlined" color="error" size="small" onClick={() => {onDelete(list._id)}}>削除</Button>
                   </div>
                 )
               })}
