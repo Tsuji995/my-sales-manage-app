@@ -5,8 +5,14 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 const connectDB = require("./utils/database")
-const punycode = require('punycode/package.json')
+// const punycode = require('punycode/package.json')
 const { DateModel, SalesModel } = require("./utils/schemaModels")
+
+require('dotenv').config()
+
+const mongoose = require("mongoose")
+
+
 
 // mongodb+srv://shizhicheng651:<password>@cluster0.8mcf7n4.mongodb.net/?retryWrites=true&w=majority
 
@@ -114,6 +120,8 @@ app.delete("/salesList/delete/:id", async(req, res) => {
 
 
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Listen on localhost port 5000")
 })
+
+mongoose.connect(process.env.MONGODB_URL)
