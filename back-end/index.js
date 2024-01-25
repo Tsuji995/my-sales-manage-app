@@ -12,6 +12,8 @@ require('dotenv').config()
 
 const mongoose = require("mongoose")
 
+const port = process.env.PORT || 5000
+
 
 
 // mongodb+srv://shizhicheng651:<password>@cluster0.8mcf7n4.mongodb.net/?retryWrites=true&w=majority
@@ -120,8 +122,8 @@ app.delete("/salesList/delete/:id", async(req, res) => {
 
 
 
-app.listen(process.env.PORT, () => {
-    console.log("Listen on localhost port 5000")
+app.listen(port, () => {
+    console.log(`Listen on localhost port ${port}`)
 })
 
 mongoose.connect(process.env.MONGODB_URL)
